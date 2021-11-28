@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2019 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -46,10 +46,18 @@
 // 
 // DO NOT MODIFY THIS FILE.
 
-//-----------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------------
 // Filename:    design_1_zynq_ultra_ps_e_0_1_stub.sv
-// Description: This HDL file is intended to be used with Xilinx Vivado Simulator (XSIM) only.
-//-----------------------------------------------------------------------------
+// Description: This HDL file is intended to be used with following simulators only:
+//
+//   Vivado Simulator (XSim)
+//   Cadence Xcelium Simulator
+//   Aldec Riviera-PRO Simulator
+//
+//------------------------------------------------------------------------------------
+`timescale 1ps/1ps
+
 `ifdef XILINX_SIMULATOR
 
 `ifndef XILINX_SIMULATOR_BITASBOOL
@@ -158,5 +166,215 @@ module design_1_zynq_ultra_ps_e_0_1 (
   output bit_as_bool pl_resetn0,
   output bit_as_bool pl_clk0
 );
+endmodule
+`endif
+
+`ifdef XCELIUM
+(* XMSC_MODULE_EXPORT *)
+module design_1_zynq_ultra_ps_e_0_1 (maxihpm0_fpd_aclk,maxigp0_awid,maxigp0_awaddr,maxigp0_awlen,maxigp0_awsize,maxigp0_awburst,maxigp0_awlock,maxigp0_awcache,maxigp0_awprot,maxigp0_awvalid,maxigp0_awuser,maxigp0_awready,maxigp0_wdata,maxigp0_wstrb,maxigp0_wlast,maxigp0_wvalid,maxigp0_wready,maxigp0_bid,maxigp0_bresp,maxigp0_bvalid,maxigp0_bready,maxigp0_arid,maxigp0_araddr,maxigp0_arlen,maxigp0_arsize,maxigp0_arburst,maxigp0_arlock,maxigp0_arcache,maxigp0_arprot,maxigp0_arvalid,maxigp0_aruser,maxigp0_arready,maxigp0_rid,maxigp0_rdata,maxigp0_rresp,maxigp0_rlast,maxigp0_rvalid,maxigp0_rready,maxigp0_awqos,maxigp0_arqos,maxihpm1_fpd_aclk,maxigp1_awid,maxigp1_awaddr,maxigp1_awlen,maxigp1_awsize,maxigp1_awburst,maxigp1_awlock,maxigp1_awcache,maxigp1_awprot,maxigp1_awvalid,maxigp1_awuser,maxigp1_awready,maxigp1_wdata,maxigp1_wstrb,maxigp1_wlast,maxigp1_wvalid,maxigp1_wready,maxigp1_bid,maxigp1_bresp,maxigp1_bvalid,maxigp1_bready,maxigp1_arid,maxigp1_araddr,maxigp1_arlen,maxigp1_arsize,maxigp1_arburst,maxigp1_arlock,maxigp1_arcache,maxigp1_arprot,maxigp1_arvalid,maxigp1_aruser,maxigp1_arready,maxigp1_rid,maxigp1_rdata,maxigp1_rresp,maxigp1_rlast,maxigp1_rvalid,maxigp1_rready,maxigp1_awqos,maxigp1_arqos,dp_video_ref_clk,dp_live_video_in_vsync,dp_live_video_in_hsync,dp_live_video_in_de,dp_live_video_in_pixel1,dp_video_in_clk,dp_video_out_hsync,dp_video_out_vsync,dp_video_out_pixel1,dp_live_gfx_alpha_in,dp_live_gfx_pixel1_in,dp_external_custom_event1,dp_external_custom_event2,dp_external_vsync_event,dp_live_video_de_out,pl_ps_irq0,pl_resetn0,pl_clk0)
+(* integer foreign = "SystemC";
+*);
+  input bit maxihpm0_fpd_aclk;
+  output wire [15 : 0] maxigp0_awid;
+  output wire [39 : 0] maxigp0_awaddr;
+  output wire [7 : 0] maxigp0_awlen;
+  output wire [2 : 0] maxigp0_awsize;
+  output wire [1 : 0] maxigp0_awburst;
+  output wire maxigp0_awlock;
+  output wire [3 : 0] maxigp0_awcache;
+  output wire [2 : 0] maxigp0_awprot;
+  output wire maxigp0_awvalid;
+  output wire [15 : 0] maxigp0_awuser;
+  input bit maxigp0_awready;
+  output wire [127 : 0] maxigp0_wdata;
+  output wire [15 : 0] maxigp0_wstrb;
+  output wire maxigp0_wlast;
+  output wire maxigp0_wvalid;
+  input bit maxigp0_wready;
+  input bit [15 : 0] maxigp0_bid;
+  input bit [1 : 0] maxigp0_bresp;
+  input bit maxigp0_bvalid;
+  output wire maxigp0_bready;
+  output wire [15 : 0] maxigp0_arid;
+  output wire [39 : 0] maxigp0_araddr;
+  output wire [7 : 0] maxigp0_arlen;
+  output wire [2 : 0] maxigp0_arsize;
+  output wire [1 : 0] maxigp0_arburst;
+  output wire maxigp0_arlock;
+  output wire [3 : 0] maxigp0_arcache;
+  output wire [2 : 0] maxigp0_arprot;
+  output wire maxigp0_arvalid;
+  output wire [15 : 0] maxigp0_aruser;
+  input bit maxigp0_arready;
+  input bit [15 : 0] maxigp0_rid;
+  input bit [127 : 0] maxigp0_rdata;
+  input bit [1 : 0] maxigp0_rresp;
+  input bit maxigp0_rlast;
+  input bit maxigp0_rvalid;
+  output wire maxigp0_rready;
+  output wire [3 : 0] maxigp0_awqos;
+  output wire [3 : 0] maxigp0_arqos;
+  input bit maxihpm1_fpd_aclk;
+  output wire [15 : 0] maxigp1_awid;
+  output wire [39 : 0] maxigp1_awaddr;
+  output wire [7 : 0] maxigp1_awlen;
+  output wire [2 : 0] maxigp1_awsize;
+  output wire [1 : 0] maxigp1_awburst;
+  output wire maxigp1_awlock;
+  output wire [3 : 0] maxigp1_awcache;
+  output wire [2 : 0] maxigp1_awprot;
+  output wire maxigp1_awvalid;
+  output wire [15 : 0] maxigp1_awuser;
+  input bit maxigp1_awready;
+  output wire [127 : 0] maxigp1_wdata;
+  output wire [15 : 0] maxigp1_wstrb;
+  output wire maxigp1_wlast;
+  output wire maxigp1_wvalid;
+  input bit maxigp1_wready;
+  input bit [15 : 0] maxigp1_bid;
+  input bit [1 : 0] maxigp1_bresp;
+  input bit maxigp1_bvalid;
+  output wire maxigp1_bready;
+  output wire [15 : 0] maxigp1_arid;
+  output wire [39 : 0] maxigp1_araddr;
+  output wire [7 : 0] maxigp1_arlen;
+  output wire [2 : 0] maxigp1_arsize;
+  output wire [1 : 0] maxigp1_arburst;
+  output wire maxigp1_arlock;
+  output wire [3 : 0] maxigp1_arcache;
+  output wire [2 : 0] maxigp1_arprot;
+  output wire maxigp1_arvalid;
+  output wire [15 : 0] maxigp1_aruser;
+  input bit maxigp1_arready;
+  input bit [15 : 0] maxigp1_rid;
+  input bit [127 : 0] maxigp1_rdata;
+  input bit [1 : 0] maxigp1_rresp;
+  input bit maxigp1_rlast;
+  input bit maxigp1_rvalid;
+  output wire maxigp1_rready;
+  output wire [3 : 0] maxigp1_awqos;
+  output wire [3 : 0] maxigp1_arqos;
+  output wire dp_video_ref_clk;
+  input bit dp_live_video_in_vsync;
+  input bit dp_live_video_in_hsync;
+  input bit dp_live_video_in_de;
+  input bit [35 : 0] dp_live_video_in_pixel1;
+  input bit dp_video_in_clk;
+  output wire dp_video_out_hsync;
+  output wire dp_video_out_vsync;
+  output wire [35 : 0] dp_video_out_pixel1;
+  input bit [7 : 0] dp_live_gfx_alpha_in;
+  input bit [35 : 0] dp_live_gfx_pixel1_in;
+  input bit dp_external_custom_event1;
+  input bit dp_external_custom_event2;
+  input bit dp_external_vsync_event;
+  output wire dp_live_video_de_out;
+  input bit [0 : 0] pl_ps_irq0;
+  output wire pl_resetn0;
+  output wire pl_clk0;
+endmodule
+`endif
+
+`ifdef RIVIERA
+(* SC_MODULE_EXPORT *)
+module design_1_zynq_ultra_ps_e_0_1 (maxihpm0_fpd_aclk,maxigp0_awid,maxigp0_awaddr,maxigp0_awlen,maxigp0_awsize,maxigp0_awburst,maxigp0_awlock,maxigp0_awcache,maxigp0_awprot,maxigp0_awvalid,maxigp0_awuser,maxigp0_awready,maxigp0_wdata,maxigp0_wstrb,maxigp0_wlast,maxigp0_wvalid,maxigp0_wready,maxigp0_bid,maxigp0_bresp,maxigp0_bvalid,maxigp0_bready,maxigp0_arid,maxigp0_araddr,maxigp0_arlen,maxigp0_arsize,maxigp0_arburst,maxigp0_arlock,maxigp0_arcache,maxigp0_arprot,maxigp0_arvalid,maxigp0_aruser,maxigp0_arready,maxigp0_rid,maxigp0_rdata,maxigp0_rresp,maxigp0_rlast,maxigp0_rvalid,maxigp0_rready,maxigp0_awqos,maxigp0_arqos,maxihpm1_fpd_aclk,maxigp1_awid,maxigp1_awaddr,maxigp1_awlen,maxigp1_awsize,maxigp1_awburst,maxigp1_awlock,maxigp1_awcache,maxigp1_awprot,maxigp1_awvalid,maxigp1_awuser,maxigp1_awready,maxigp1_wdata,maxigp1_wstrb,maxigp1_wlast,maxigp1_wvalid,maxigp1_wready,maxigp1_bid,maxigp1_bresp,maxigp1_bvalid,maxigp1_bready,maxigp1_arid,maxigp1_araddr,maxigp1_arlen,maxigp1_arsize,maxigp1_arburst,maxigp1_arlock,maxigp1_arcache,maxigp1_arprot,maxigp1_arvalid,maxigp1_aruser,maxigp1_arready,maxigp1_rid,maxigp1_rdata,maxigp1_rresp,maxigp1_rlast,maxigp1_rvalid,maxigp1_rready,maxigp1_awqos,maxigp1_arqos,dp_video_ref_clk,dp_live_video_in_vsync,dp_live_video_in_hsync,dp_live_video_in_de,dp_live_video_in_pixel1,dp_video_in_clk,dp_video_out_hsync,dp_video_out_vsync,dp_video_out_pixel1,dp_live_gfx_alpha_in,dp_live_gfx_pixel1_in,dp_external_custom_event1,dp_external_custom_event2,dp_external_vsync_event,dp_live_video_de_out,pl_ps_irq0,pl_resetn0,pl_clk0)
+  input bit maxihpm0_fpd_aclk;
+  output wire [15 : 0] maxigp0_awid;
+  output wire [39 : 0] maxigp0_awaddr;
+  output wire [7 : 0] maxigp0_awlen;
+  output wire [2 : 0] maxigp0_awsize;
+  output wire [1 : 0] maxigp0_awburst;
+  output wire maxigp0_awlock;
+  output wire [3 : 0] maxigp0_awcache;
+  output wire [2 : 0] maxigp0_awprot;
+  output wire maxigp0_awvalid;
+  output wire [15 : 0] maxigp0_awuser;
+  input bit maxigp0_awready;
+  output wire [127 : 0] maxigp0_wdata;
+  output wire [15 : 0] maxigp0_wstrb;
+  output wire maxigp0_wlast;
+  output wire maxigp0_wvalid;
+  input bit maxigp0_wready;
+  input bit [15 : 0] maxigp0_bid;
+  input bit [1 : 0] maxigp0_bresp;
+  input bit maxigp0_bvalid;
+  output wire maxigp0_bready;
+  output wire [15 : 0] maxigp0_arid;
+  output wire [39 : 0] maxigp0_araddr;
+  output wire [7 : 0] maxigp0_arlen;
+  output wire [2 : 0] maxigp0_arsize;
+  output wire [1 : 0] maxigp0_arburst;
+  output wire maxigp0_arlock;
+  output wire [3 : 0] maxigp0_arcache;
+  output wire [2 : 0] maxigp0_arprot;
+  output wire maxigp0_arvalid;
+  output wire [15 : 0] maxigp0_aruser;
+  input bit maxigp0_arready;
+  input bit [15 : 0] maxigp0_rid;
+  input bit [127 : 0] maxigp0_rdata;
+  input bit [1 : 0] maxigp0_rresp;
+  input bit maxigp0_rlast;
+  input bit maxigp0_rvalid;
+  output wire maxigp0_rready;
+  output wire [3 : 0] maxigp0_awqos;
+  output wire [3 : 0] maxigp0_arqos;
+  input bit maxihpm1_fpd_aclk;
+  output wire [15 : 0] maxigp1_awid;
+  output wire [39 : 0] maxigp1_awaddr;
+  output wire [7 : 0] maxigp1_awlen;
+  output wire [2 : 0] maxigp1_awsize;
+  output wire [1 : 0] maxigp1_awburst;
+  output wire maxigp1_awlock;
+  output wire [3 : 0] maxigp1_awcache;
+  output wire [2 : 0] maxigp1_awprot;
+  output wire maxigp1_awvalid;
+  output wire [15 : 0] maxigp1_awuser;
+  input bit maxigp1_awready;
+  output wire [127 : 0] maxigp1_wdata;
+  output wire [15 : 0] maxigp1_wstrb;
+  output wire maxigp1_wlast;
+  output wire maxigp1_wvalid;
+  input bit maxigp1_wready;
+  input bit [15 : 0] maxigp1_bid;
+  input bit [1 : 0] maxigp1_bresp;
+  input bit maxigp1_bvalid;
+  output wire maxigp1_bready;
+  output wire [15 : 0] maxigp1_arid;
+  output wire [39 : 0] maxigp1_araddr;
+  output wire [7 : 0] maxigp1_arlen;
+  output wire [2 : 0] maxigp1_arsize;
+  output wire [1 : 0] maxigp1_arburst;
+  output wire maxigp1_arlock;
+  output wire [3 : 0] maxigp1_arcache;
+  output wire [2 : 0] maxigp1_arprot;
+  output wire maxigp1_arvalid;
+  output wire [15 : 0] maxigp1_aruser;
+  input bit maxigp1_arready;
+  input bit [15 : 0] maxigp1_rid;
+  input bit [127 : 0] maxigp1_rdata;
+  input bit [1 : 0] maxigp1_rresp;
+  input bit maxigp1_rlast;
+  input bit maxigp1_rvalid;
+  output wire maxigp1_rready;
+  output wire [3 : 0] maxigp1_awqos;
+  output wire [3 : 0] maxigp1_arqos;
+  output wire dp_video_ref_clk;
+  input bit dp_live_video_in_vsync;
+  input bit dp_live_video_in_hsync;
+  input bit dp_live_video_in_de;
+  input bit [35 : 0] dp_live_video_in_pixel1;
+  input bit dp_video_in_clk;
+  output wire dp_video_out_hsync;
+  output wire dp_video_out_vsync;
+  output wire [35 : 0] dp_video_out_pixel1;
+  input bit [7 : 0] dp_live_gfx_alpha_in;
+  input bit [35 : 0] dp_live_gfx_pixel1_in;
+  input bit dp_external_custom_event1;
+  input bit dp_external_custom_event2;
+  input bit dp_external_vsync_event;
+  output wire dp_live_video_de_out;
+  input bit [0 : 0] pl_ps_irq0;
+  output wire pl_resetn0;
+  output wire pl_clk0;
 endmodule
 `endif

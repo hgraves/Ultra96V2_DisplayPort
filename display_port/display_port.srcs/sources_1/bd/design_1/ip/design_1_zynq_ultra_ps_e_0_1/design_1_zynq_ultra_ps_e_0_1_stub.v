@@ -1,10 +1,10 @@
-// Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+// Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Tue Jul 16 11:24:00 2019
-// Host        : DESKTOP-HQKVQ13 running 64-bit major release  (build 9200)
+// Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
+// Date        : Fri Nov 26 22:34:22 2021
+// Host        : fitwig running 64-bit Ubuntu 20.04.3 LTS
 // Command     : write_verilog -force -mode synth_stub
-//               c:/HDL_projects_git/display_port/display_port.srcs/sources_1/bd/design_1/ip/design_1_zynq_ultra_ps_e_0_1/design_1_zynq_ultra_ps_e_0_1_stub.v
+//               /home/hgraves/Projects/ultra96/projects/Ultra96V2_DisplayPort/display_port/display_port.srcs/sources_1/bd/design_1/ip/design_1_zynq_ultra_ps_e_0_1/design_1_zynq_ultra_ps_e_0_1_stub.v
 // Design      : design_1_zynq_ultra_ps_e_0_1
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xczu3eg-sbva484-1-e
@@ -13,7 +13,7 @@
 // This empty module with port declaration file causes synthesis tools to infer a black box for IP.
 // The synthesis directives are for Synopsys Synplify support to prevent IO buffer insertion.
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
-(* x_core_info = "zynq_ultra_ps_e_v3_2_2_zynq_ultra_ps_e,Vivado 2018.3" *)
+(* x_core_info = "zynq_ultra_ps_e_v3_3_3_zynq_ultra_ps_e,Vivado 2020.2" *)
 module design_1_zynq_ultra_ps_e_0_1(maxihpm0_fpd_aclk, maxigp0_awid, 
   maxigp0_awaddr, maxigp0_awlen, maxigp0_awsize, maxigp0_awburst, maxigp0_awlock, 
   maxigp0_awcache, maxigp0_awprot, maxigp0_awvalid, maxigp0_awuser, maxigp0_awready, 

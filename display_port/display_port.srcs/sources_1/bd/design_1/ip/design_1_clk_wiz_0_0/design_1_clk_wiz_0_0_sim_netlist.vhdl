@@ -1,10 +1,10 @@
--- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+-- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Tue Jul 16 11:23:37 2019
--- Host        : DESKTOP-HQKVQ13 running 64-bit major release  (build 9200)
+-- Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
+-- Date        : Fri Nov 26 22:34:10 2021
+-- Host        : fitwig running 64-bit Ubuntu 20.04.3 LTS
 -- Command     : write_vhdl -force -mode funcsim
---               C:/HDL_projects_git/display_port/display_port.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_sim_netlist.vhdl
+--               /home/hgraves/Projects/ultra96/projects/Ultra96V2_DisplayPort/display_port/display_port.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_sim_netlist.vhdl
 -- Design      : design_1_clk_wiz_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -59,7 +59,7 @@ architecture STRUCTURE of design_1_clk_wiz_0_0_design_1_clk_wiz_0_0_clk_wiz is
   attribute XILINX_LEGACY_PRIM of clkout1_buf : label is "BUFG";
   attribute BOX_TYPE of mmcme4_adv_inst : label is "PRIMITIVE";
   attribute OPT_MODIFIED : string;
-  attribute OPT_MODIFIED of mmcme4_adv_inst : label is "MLO ";
+  attribute OPT_MODIFIED of mmcme4_adv_inst : label is "MLO";
 begin
 clkin1_ibuf: unisim.vcomponents.IBUF
     generic map(
@@ -71,7 +71,8 @@ clkin1_ibuf: unisim.vcomponents.IBUF
     );
 clkout1_buf: unisim.vcomponents.BUFGCE
     generic map(
-      CE_TYPE => "ASYNC"
+      CE_TYPE => "ASYNC",
+      SIM_DEVICE => "ULTRASCALE_PLUS"
     )
         port map (
       CE => '1',

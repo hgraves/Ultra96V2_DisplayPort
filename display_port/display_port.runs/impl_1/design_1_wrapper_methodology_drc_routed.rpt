@@ -1,0 +1,1105 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
+| Date         : Sat Nov 27 13:35:09 2021
+| Host         : fitwig running 64-bit Ubuntu 20.04.3 LTS
+| Command      : report_methodology -file design_1_wrapper_methodology_drc_routed.rpt -pb design_1_wrapper_methodology_drc_routed.pb -rpx design_1_wrapper_methodology_drc_routed.rpx
+| Design       : design_1_wrapper
+| Device       : xczu3eg-sbva484-1-e
+| Speed File   : -1
+| Design State : Fully Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 191
++-----------+------------------+-----------------------------------------------------------+------------+
+| Rule      | Severity         | Description                                               | Violations |
++-----------+------------------+-----------------------------------------------------------+------------+
+| TIMING-4  | Critical Warning | Invalid primary clock redefinition on a clock tree        | 1          |
+| TIMING-6  | Critical Warning | No common primary clock between related clocks            | 1          |
+| TIMING-7  | Critical Warning | No common node between related clocks                     | 1          |
+| TIMING-27 | Critical Warning | Invalid primary clock on hierarchical pin                 | 1          |
+| TIMING-51 | Critical Warning | No common phase between related clocks from parallel CMBs | 1          |
+| LUTAR-1   | Warning          | LUT drives async reset alert                              | 11         |
+| TIMING-9  | Warning          | Unknown CDC Logic                                         | 1          |
+| TIMING-16 | Warning          | Large setup violation                                     | 173        |
+| CLKC-56   | Advisory         | MMCME4 with global clock driver has no LOC                | 1          |
++-----------+------------------+-----------------------------------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+TIMING-4#1 Critical Warning
+Invalid primary clock redefinition on a clock tree  
+Invalid clock redefinition on a clock tree. The primary clock design_1_i/clk_wiz_0/inst/clk_in1 is defined downstream of clock clk_pl_0 and overrides its insertion delay and/or waveform definition
+Related violations: <none>
+
+TIMING-6#1 Critical Warning
+No common primary clock between related clocks  
+The clocks clk_pl_0 and clk_out1_design_1_clk_wiz_0_0 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_pl_0] -to [get_clocks clk_out1_design_1_clk_wiz_0_0]
+Related violations: <none>
+
+TIMING-7#1 Critical Warning
+No common node between related clocks  
+The clocks clk_pl_0 and clk_out1_design_1_clk_wiz_0_0 are related (timed together) but they have no common node. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks clk_pl_0] -to [get_clocks clk_out1_design_1_clk_wiz_0_0]
+Related violations: <none>
+
+TIMING-27#1 Critical Warning
+Invalid primary clock on hierarchical pin  
+A primary clock design_1_i/clk_wiz_0/inst/clk_in1 is created on an inappropriate internal pin design_1_i/clk_wiz_0/inst/clk_in1. It is not recommended to create a primary clock on a hierarchical pin when its driver pin has a fanout connected to multiple clock pins
+Related violations: <none>
+
+TIMING-51#1 Critical Warning
+No common phase between related clocks from parallel CMBs  
+The clocks clk_pl_0 and clk_out1_design_1_clk_wiz_0_0 are timed together but have no phase relationship. The design could fail in hardware. The clocks originate from two parallel Clock Modifying Blocks and at least one of the MMCM or PLLs clock dividers is not set to 1. To be safely timed, all MMCMs or PLLs involved in parallel clocking must have the clock divider set to 1.
+Related violations: <none>
+
+LUTAR-1#1 Warning
+LUT drives async reset alert  
+LUT cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gwrrd_rst_sync_stage[2].rrst_inst/ngwrdrst.grst.g7serrst.rd_rst_reg[2]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[0]/PRE,
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[1]/PRE
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#2 Warning
+LUT drives async reset alert  
+LUT cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gwrrd_rst_sync_stage[2].wrst_inst/ngwrdrst.grst.g7serrst.wr_rst_reg[2]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[0]/PRE,
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[1]/PRE
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_RD/U_RD_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_rdfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[2]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#3 Warning
+LUT drives async reset alert  
+LUT cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gwrrd_rst_sync_stage[2].rrst_inst/ngwrdrst.grst.g7serrst.rd_rst_reg[2]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[0]/PRE,
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[1]/PRE
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.rd_rst_reg_reg[2]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#4 Warning
+LUT drives async reset alert  
+LUT cell dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gwrrd_rst_sync_stage[2].wrst_inst/ngwrdrst.grst.g7serrst.wr_rst_reg[2]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[0]/PRE,
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[1]/PRE
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.UUT_MASTER/U_ICON_INTERFACE/U_CMD6_WR/U_WR_FIFO/SUBCORE_FIFO.xsdbm_v3_0_0_wrfifo_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.wr_rst_reg_reg[2]/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#5 Warning
+LUT drives async reset alert  
+LUT cell dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_switch/m_bscan_sel[0]_INST_0, with 2 or more inputs, drives asynchronous preset/clear pin(s) dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.U_ICON/U_CMD/iTARGET_reg[10]/CLR,
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.U_ICON/U_CMD/iTARGET_reg[11]/CLR,
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.U_ICON/U_CMD/iTARGET_reg[12]/CLR,
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.U_ICON/U_CMD/iTARGET_reg[13]/CLR,
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.U_ICON/U_CMD/iTARGET_reg[14]/CLR,
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.U_ICON/U_CMD/iTARGET_reg[15]/CLR,
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.U_ICON/U_CMD/iTARGET_reg[6]/CLR,
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.U_ICON/U_CMD/iTARGET_reg[7]/CLR,
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.U_ICON/U_CMD/iTARGET_reg[8]/CLR
+dbg_hub/inst/BSCANID.u_xsdbm_id/CORE_XSDB.U_ICON/U_CMD/iTARGET_reg[9]/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#6 Warning
+LUT drives async reset alert  
+LUT cell design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/gpregsm1.curr_fwft_state[1]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_fb_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_fb_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_fb_o_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.curr_fwft_state_reg[0]/CLR,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.curr_fwft_state_reg[1]/CLR,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_reg/CLR,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.rsts/ram_empty_fb_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.rsts/ram_empty_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[0]/CLR,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[1]/CLR,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[2]/CLR,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[3]/CLR,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[4]/CLR
+ (the first 15 of 32 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#7 Warning
+LUT drives async reset alert  
+LUT cell design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/gpregsm1.curr_fwft_state[1]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_fb_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_fb_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_fb_o_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.curr_fwft_state_reg[0]/CLR,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.curr_fwft_state_reg[1]/CLR,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_reg/CLR,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.rsts/ram_empty_fb_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.rsts/ram_empty_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[0]/CLR,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[1]/CLR,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[2]/CLR,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[3]/CLR,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[4]/CLR
+ (the first 15 of 32 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#8 Warning
+LUT drives async reset alert  
+LUT cell design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/gpregsm1.curr_fwft_state[1]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_fb_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_fb_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_fb_o_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.curr_fwft_state_reg[0]/CLR,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.curr_fwft_state_reg[1]/CLR,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_reg/CLR,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.rsts/ram_empty_fb_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.rsts/ram_empty_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[0]/CLR,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[1]/CLR,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[2]/CLR,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[3]/CLR,
+design_1_i/ps8_0_axi_periph/s00_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[4]/CLR
+ (the first 15 of 32 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#9 Warning
+LUT drives async reset alert  
+LUT cell design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/gpregsm1.curr_fwft_state[1]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_fb_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_fb_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_fb_o_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.curr_fwft_state_reg[0]/CLR,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.curr_fwft_state_reg[1]/CLR,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_reg/CLR,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.rsts/ram_empty_fb_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.rsts/ram_empty_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[0]/CLR,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[1]/CLR,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[2]/CLR,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[3]/CLR,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[4]/CLR
+ (the first 15 of 32 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#10 Warning
+LUT drives async reset alert  
+LUT cell design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/gpregsm1.curr_fwft_state[1]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_fb_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_fb_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_fb_o_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.curr_fwft_state_reg[0]/CLR,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.curr_fwft_state_reg[1]/CLR,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_reg/CLR,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.rsts/ram_empty_fb_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.rsts/ram_empty_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[0]/CLR,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[1]/CLR,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[2]/CLR,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[3]/CLR,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/USE_B_CHANNEL.cmd_b_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[4]/CLR
+ (the first 15 of 32 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#11 Warning
+LUT drives async reset alert  
+LUT cell design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/gpregsm1.curr_fwft_state[1]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_fb_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_fb_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_fb_o_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/empty_fwft_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.curr_fwft_state_reg[0]/CLR,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.curr_fwft_state_reg[1]/CLR,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/gpregsm1.user_valid_reg/CLR,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.rsts/ram_empty_fb_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/grss.rsts/ram_empty_i_reg/PRE,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[0]/CLR,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[1]/CLR,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[2]/CLR,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[3]/CLR,
+design_1_i/ps8_0_axi_periph/s01_couplers/auto_ds/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_WRITE.write_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/rpntr/gc0.count_d1_reg[4]/CLR
+ (the first 15 of 32 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+TIMING-9#1 Warning
+Unknown CDC Logic  
+One or more asynchronous Clock Domain Crossing has been detected between 2 clock domains through a set_false_path or a set_clock_groups or set_max_delay -datapath_only constraint but no double-registers logic synchronizer has been found on the side of the capture clock. It is recommended to run report_cdc for a complete and detailed CDC coverage. Please consider using XPM_CDC to avoid Critical severities
+Related violations: <none>
+
+TIMING-16#1 Warning
+Large setup violation  
+There is a large setup violation of -2.193 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_sof_cnt_reg[0]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#2 Warning
+Large setup violation  
+There is a large setup violation of -2.193 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_sof_cnt_reg[3]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#3 Warning
+Large setup violation  
+There is a large setup violation of -2.193 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_sof_cnt_reg[4]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#4 Warning
+Large setup violation  
+There is a large setup violation of -2.193 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_sof_cnt_reg[6]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#5 Warning
+Large setup violation  
+There is a large setup violation of -2.196 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/sof_ignore_reg/D (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#6 Warning
+Large setup violation  
+There is a large setup violation of -2.201 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/status_reg_reg[2]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#7 Warning
+Large setup violation  
+There is a large setup violation of -2.201 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/status_reg_reg[3]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#8 Warning
+Large setup violation  
+There is a large setup violation of -2.201 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/status_reg_reg[4]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#9 Warning
+Large setup violation  
+There is a large setup violation of -2.201 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/status_reg_reg[8]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#10 Warning
+Large setup violation  
+There is a large setup violation of -2.203 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_error_reg/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#11 Warning
+Large setup violation  
+There is a large setup violation of -2.214 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_dly_reg[8]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#12 Warning
+Large setup violation  
+There is a large setup violation of -2.219 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_data_mux_reg[16]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#13 Warning
+Large setup violation  
+There is a large setup violation of -2.219 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_data_mux_reg[22]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#14 Warning
+Large setup violation  
+There is a large setup violation of -2.219 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_data_mux_reg[28]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#15 Warning
+Large setup violation  
+There is a large setup violation of -2.219 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_data_mux_reg[29]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#16 Warning
+Large setup violation  
+There is a large setup violation of -2.219 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_data_mux_reg[30]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#17 Warning
+Large setup violation  
+There is a large setup violation of -2.219 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_data_mux_reg[34]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#18 Warning
+Large setup violation  
+There is a large setup violation of -2.219 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_data_mux_reg[5]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#19 Warning
+Large setup violation  
+There is a large setup violation of -2.219 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_data_mux_reg[6]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#20 Warning
+Large setup violation  
+There is a large setup violation of -2.219 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_de_dly_reg/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#21 Warning
+Large setup violation  
+There is a large setup violation of -2.221 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_data_mux_reg[10]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#22 Warning
+Large setup violation  
+There is a large setup violation of -2.221 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_data_mux_reg[11]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#23 Warning
+Large setup violation  
+There is a large setup violation of -2.221 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_data_mux_reg[21]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#24 Warning
+Large setup violation  
+There is a large setup violation of -2.221 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_data_mux_reg[23]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#25 Warning
+Large setup violation  
+There is a large setup violation of -2.221 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_data_mux_reg[31]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#26 Warning
+Large setup violation  
+There is a large setup violation of -2.221 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_data_mux_reg[33]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#27 Warning
+Large setup violation  
+There is a large setup violation of -2.221 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_data_mux_reg[35]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#28 Warning
+Large setup violation  
+There is a large setup violation of -2.221 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_data_mux_reg[8]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#29 Warning
+Large setup violation  
+There is a large setup violation of -2.222 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_sof_cnt_reg[1]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#30 Warning
+Large setup violation  
+There is a large setup violation of -2.222 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_sof_cnt_reg[2]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#31 Warning
+Large setup violation  
+There is a large setup violation of -2.222 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_sof_cnt_reg[7]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#32 Warning
+Large setup violation  
+There is a large setup violation of -2.222 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_sof_cnt_reg[1]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#33 Warning
+Large setup violation  
+There is a large setup violation of -2.222 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_sof_cnt_reg[4]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#34 Warning
+Large setup violation  
+There is a large setup violation of -2.222 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_sof_cnt_reg[5]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#35 Warning
+Large setup violation  
+There is a large setup violation of -2.222 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_sof_cnt_reg[6]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#36 Warning
+Large setup violation  
+There is a large setup violation of -2.224 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_sof_cnt_reg[5]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#37 Warning
+Large setup violation  
+There is a large setup violation of -2.224 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_sof_cnt_reg[0]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#38 Warning
+Large setup violation  
+There is a large setup violation of -2.224 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_sof_cnt_reg[7]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#39 Warning
+Large setup violation  
+There is a large setup violation of -2.235 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_vsync_bp_reg/D (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#40 Warning
+Large setup violation  
+There is a large setup violation of -2.236 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_dly_reg[12]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#41 Warning
+Large setup violation  
+There is a large setup violation of -2.236 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_dly_reg[1]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#42 Warning
+Large setup violation  
+There is a large setup violation of -2.236 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_dly_reg[3]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#43 Warning
+Large setup violation  
+There is a large setup violation of -2.236 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_dly_reg[6]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#44 Warning
+Large setup violation  
+There is a large setup violation of -2.236 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_dly_reg[7]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#45 Warning
+Large setup violation  
+There is a large setup violation of -2.237 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/fivid_reset_full_frame_reg/D (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#46 Warning
+Large setup violation  
+There is a large setup violation of -2.253 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_dly_reg[0]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#47 Warning
+Large setup violation  
+There is a large setup violation of -2.253 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_dly_reg[10]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#48 Warning
+Large setup violation  
+There is a large setup violation of -2.253 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_dly_reg[11]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#49 Warning
+Large setup violation  
+There is a large setup violation of -2.253 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_dly_reg[2]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#50 Warning
+Large setup violation  
+There is a large setup violation of -2.253 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_dly_reg[4]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#51 Warning
+Large setup violation  
+There is a large setup violation of -2.253 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_dly_reg[5]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#52 Warning
+Large setup violation  
+There is a large setup violation of -2.253 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_dly_reg[9]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#53 Warning
+Large setup violation  
+There is a large setup violation of -2.254 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[20]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#54 Warning
+Large setup violation  
+There is a large setup violation of -2.254 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[21]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#55 Warning
+Large setup violation  
+There is a large setup violation of -2.254 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[22]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#56 Warning
+Large setup violation  
+There is a large setup violation of -2.254 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[23]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#57 Warning
+Large setup violation  
+There is a large setup violation of -2.257 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_de_mux_reg/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#58 Warning
+Large setup violation  
+There is a large setup violation of -2.257 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_hsync_mux_reg/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#59 Warning
+Large setup violation  
+There is a large setup violation of -2.257 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_vsync_mux_reg/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#60 Warning
+Large setup violation  
+There is a large setup violation of -2.258 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[16]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#61 Warning
+Large setup violation  
+There is a large setup violation of -2.258 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[17]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#62 Warning
+Large setup violation  
+There is a large setup violation of -2.258 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[18]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#63 Warning
+Large setup violation  
+There is a large setup violation of -2.258 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[19]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#64 Warning
+Large setup violation  
+There is a large setup violation of -2.258 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_sof_cnt_reg[2]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#65 Warning
+Large setup violation  
+There is a large setup violation of -2.258 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_sof_cnt_reg[3]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#66 Warning
+Large setup violation  
+There is a large setup violation of -2.259 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_data_mux_reg[17]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#67 Warning
+Large setup violation  
+There is a large setup violation of -2.259 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_data_mux_reg[18]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#68 Warning
+Large setup violation  
+There is a large setup violation of -2.259 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_data_mux_reg[19]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#69 Warning
+Large setup violation  
+There is a large setup violation of -2.259 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_data_mux_reg[20]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#70 Warning
+Large setup violation  
+There is a large setup violation of -2.259 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_data_mux_reg[32]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#71 Warning
+Large setup violation  
+There is a large setup violation of -2.259 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_data_mux_reg[4]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#72 Warning
+Large setup violation  
+There is a large setup violation of -2.259 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_data_mux_reg[7]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#73 Warning
+Large setup violation  
+There is a large setup violation of -2.259 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/FORMATTER_INST/in_data_mux_reg[9]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#74 Warning
+Large setup violation  
+There is a large setup violation of -2.260 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/status_reg_reg[5]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#75 Warning
+Large setup violation  
+There is a large setup violation of -2.260 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/status_reg_reg[9]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#76 Warning
+Large setup violation  
+There is a large setup violation of -2.261 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_dly_reg/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#77 Warning
+Large setup violation  
+There is a large setup violation of -2.261 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_re_dly_reg/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#78 Warning
+Large setup violation  
+There is a large setup violation of -2.261 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/status_reg_reg[14]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#79 Warning
+Large setup violation  
+There is a large setup violation of -2.261 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/status_reg_reg[16]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#80 Warning
+Large setup violation  
+There is a large setup violation of -2.261 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/status_reg_reg[19]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#81 Warning
+Large setup violation  
+There is a large setup violation of -2.261 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/status_reg_reg[20]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#82 Warning
+Large setup violation  
+There is a large setup violation of -2.261 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/status_reg_reg[22]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#83 Warning
+Large setup violation  
+There is a large setup violation of -2.261 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/status_reg_reg[23]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#84 Warning
+Large setup violation  
+There is a large setup violation of -2.275 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/state_dly_reg[0]/CE (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#85 Warning
+Large setup violation  
+There is a large setup violation of -2.275 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/state_dly_reg[1]/CE (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#86 Warning
+Large setup violation  
+There is a large setup violation of -2.275 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/state_dly_reg[2]/CE (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#87 Warning
+Large setup violation  
+There is a large setup violation of -2.275 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/state_dly_reg[3]/CE (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#88 Warning
+Large setup violation  
+There is a large setup violation of -2.277 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/FSM_sequential_state_reg[0]/S (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#89 Warning
+Large setup violation  
+There is a large setup violation of -2.277 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/FSM_sequential_state_reg[1]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#90 Warning
+Large setup violation  
+There is a large setup violation of -2.277 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/FSM_sequential_state_reg[2]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#91 Warning
+Large setup violation  
+There is a large setup violation of -2.277 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/FSM_sequential_state_reg[3]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#92 Warning
+Large setup violation  
+There is a large setup violation of -2.278 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_error_reg/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#93 Warning
+Large setup violation  
+There is a large setup violation of -2.278 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/status_reg_reg[13]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#94 Warning
+Large setup violation  
+There is a large setup violation of -2.278 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/status_reg_reg[17]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#95 Warning
+Large setup violation  
+There is a large setup violation of -2.278 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/status_reg_reg[18]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#96 Warning
+Large setup violation  
+There is a large setup violation of -2.278 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/status_reg_reg[21]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#97 Warning
+Large setup violation  
+There is a large setup violation of -2.278 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/status_reg_reg[24]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#98 Warning
+Large setup violation  
+There is a large setup violation of -2.278 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/status_reg_reg[25]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#99 Warning
+Large setup violation  
+There is a large setup violation of -2.278 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_vsync_dly_reg/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#100 Warning
+Large setup violation  
+There is a large setup violation of -2.278 ns between design_1_i/v_axi4s_vid_out_0/inst/COUPLER_INST/generate_async_fifo.FIFO_INST/XPM_FIFO_ASYNC_INST/gnuram_async_fifo.xpm_fifo_base_inst/gof.overflow_i_reg/C (clocked by clk_pl_0) and design_1_i/ila_1/U0/ila_core_inst/shifted_data_in_reg[7][2]_srl8/D (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#101 Warning
+Large setup violation  
+There is a large setup violation of -2.282 ns between design_1_i/v_axi4s_vid_out_0/inst/COUPLER_INST/generate_async_fifo.FIFO_INST/XPM_FIFO_ASYNC_INST/gnuram_async_fifo.xpm_fifo_base_inst/gof.overflow_i_reg/C (clocked by clk_pl_0) and design_1_i/ila_1/U0/ila_core_inst/u_trig/U_TM/N_DDR_MODE.G_NMU[2].U_M/allx_typeA_match_detection.ltlib_v1_0_0_allx_typeA_inst/probeDelay1_reg[0]/D (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#102 Warning
+Large setup violation  
+There is a large setup violation of -2.287 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_dly_reg[10]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#103 Warning
+Large setup violation  
+There is a large setup violation of -2.287 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_dly_reg[11]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#104 Warning
+Large setup violation  
+There is a large setup violation of -2.287 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_dly_reg[12]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#105 Warning
+Large setup violation  
+There is a large setup violation of -2.287 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_dly_reg[1]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#106 Warning
+Large setup violation  
+There is a large setup violation of -2.287 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_dly_reg[4]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#107 Warning
+Large setup violation  
+There is a large setup violation of -2.287 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_dly_reg[6]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#108 Warning
+Large setup violation  
+There is a large setup violation of -2.287 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_dly_reg[7]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#109 Warning
+Large setup violation  
+There is a large setup violation of -2.287 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_dly_reg[8]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#110 Warning
+Large setup violation  
+There is a large setup violation of -2.290 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_sof_dly_reg/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#111 Warning
+Large setup violation  
+There is a large setup violation of -2.292 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_dly_reg[0]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#112 Warning
+Large setup violation  
+There is a large setup violation of -2.292 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_dly_reg[2]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#113 Warning
+Large setup violation  
+There is a large setup violation of -2.292 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_dly_reg[3]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#114 Warning
+Large setup violation  
+There is a large setup violation of -2.292 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_dly_reg[5]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#115 Warning
+Large setup violation  
+There is a large setup violation of -2.292 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_dly_reg[9]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#116 Warning
+Large setup violation  
+There is a large setup violation of -2.303 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_sof_dly_reg/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#117 Warning
+Large setup violation  
+There is a large setup violation of -2.303 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/status_reg_reg[0]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#118 Warning
+Large setup violation  
+There is a large setup violation of -2.303 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/status_reg_reg[11]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#119 Warning
+Large setup violation  
+There is a large setup violation of -2.303 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/status_reg_reg[12]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#120 Warning
+Large setup violation  
+There is a large setup violation of -2.305 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/status_reg_reg[10]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#121 Warning
+Large setup violation  
+There is a large setup violation of -2.305 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/status_reg_reg[1]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#122 Warning
+Large setup violation  
+There is a large setup violation of -2.305 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/status_reg_reg[6]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#123 Warning
+Large setup violation  
+There is a large setup violation of -2.305 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/status_reg_reg[7]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#124 Warning
+Large setup violation  
+There is a large setup violation of -2.321 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_reg[10]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#125 Warning
+Large setup violation  
+There is a large setup violation of -2.321 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_reg[11]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#126 Warning
+Large setup violation  
+There is a large setup violation of -2.321 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_reg[12]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#127 Warning
+Large setup violation  
+There is a large setup violation of -2.321 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_reg[9]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#128 Warning
+Large setup violation  
+There is a large setup violation of -2.326 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[28]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#129 Warning
+Large setup violation  
+There is a large setup violation of -2.326 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[29]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#130 Warning
+Large setup violation  
+There is a large setup violation of -2.326 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[30]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#131 Warning
+Large setup violation  
+There is a large setup violation of -2.326 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[31]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#132 Warning
+Large setup violation  
+There is a large setup violation of -2.330 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[24]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#133 Warning
+Large setup violation  
+There is a large setup violation of -2.330 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[25]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#134 Warning
+Large setup violation  
+There is a large setup violation of -2.330 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[26]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#135 Warning
+Large setup violation  
+There is a large setup violation of -2.330 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[27]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#136 Warning
+Large setup violation  
+There is a large setup violation of -2.335 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_reg[0]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#137 Warning
+Large setup violation  
+There is a large setup violation of -2.335 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_reg[5]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#138 Warning
+Large setup violation  
+There is a large setup violation of -2.335 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_reg[6]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#139 Warning
+Large setup violation  
+There is a large setup violation of -2.335 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_reg[7]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#140 Warning
+Large setup violation  
+There is a large setup violation of -2.335 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_reg[8]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#141 Warning
+Large setup violation  
+There is a large setup violation of -2.337 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_reg[1]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#142 Warning
+Large setup violation  
+There is a large setup violation of -2.337 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_reg[2]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#143 Warning
+Large setup violation  
+There is a large setup violation of -2.337 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_reg[3]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#144 Warning
+Large setup violation  
+There is a large setup violation of -2.337 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_reg[4]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#145 Warning
+Large setup violation  
+There is a large setup violation of -2.345 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_reg[10]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#146 Warning
+Large setup violation  
+There is a large setup violation of -2.345 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_reg[11]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#147 Warning
+Large setup violation  
+There is a large setup violation of -2.345 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_reg[12]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#148 Warning
+Large setup violation  
+There is a large setup violation of -2.345 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_pix_cnt_reg[9]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#149 Warning
+Large setup violation  
+There is a large setup violation of -2.346 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[4]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#150 Warning
+Large setup violation  
+There is a large setup violation of -2.346 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[5]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#151 Warning
+Large setup violation  
+There is a large setup violation of -2.346 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[6]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#152 Warning
+Large setup violation  
+There is a large setup violation of -2.346 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[7]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#153 Warning
+Large setup violation  
+There is a large setup violation of -2.347 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[12]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#154 Warning
+Large setup violation  
+There is a large setup violation of -2.347 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[13]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#155 Warning
+Large setup violation  
+There is a large setup violation of -2.347 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[14]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#156 Warning
+Large setup violation  
+There is a large setup violation of -2.347 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[15]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#157 Warning
+Large setup violation  
+There is a large setup violation of -2.350 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[0]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#158 Warning
+Large setup violation  
+There is a large setup violation of -2.350 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[1]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#159 Warning
+Large setup violation  
+There is a large setup violation of -2.350 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[2]/S (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#160 Warning
+Large setup violation  
+There is a large setup violation of -2.350 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[3]/S (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#161 Warning
+Large setup violation  
+There is a large setup violation of -2.351 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[10]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#162 Warning
+Large setup violation  
+There is a large setup violation of -2.351 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[11]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#163 Warning
+Large setup violation  
+There is a large setup violation of -2.351 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[8]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#164 Warning
+Large setup violation  
+There is a large setup violation of -2.351 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/vtg_lag_reg[9]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#165 Warning
+Large setup violation  
+There is a large setup violation of -2.355 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_reg[0]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#166 Warning
+Large setup violation  
+There is a large setup violation of -2.355 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_reg[5]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#167 Warning
+Large setup violation  
+There is a large setup violation of -2.355 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_reg[6]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#168 Warning
+Large setup violation  
+There is a large setup violation of -2.355 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_reg[7]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#169 Warning
+Large setup violation  
+There is a large setup violation of -2.355 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_reg[8]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#170 Warning
+Large setup violation  
+There is a large setup violation of -2.357 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_reg[1]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#171 Warning
+Large setup violation  
+There is a large setup violation of -2.357 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_reg[2]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#172 Warning
+Large setup violation  
+There is a large setup violation of -2.357 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_reg[3]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+TIMING-16#173 Warning
+Large setup violation  
+There is a large setup violation of -2.357 ns between design_1_i/rst_ps8_0_100M/U0/PR_OUT_DFF[0].FDRE_PER/C (clocked by clk_pl_0) and design_1_i/v_axi4s_vid_out_0/inst/SYNC_INST/fifo_eol_cnt_reg[4]/R (clocked by clk_out1_design_1_clk_wiz_0_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+Related violations: <none>
+
+CLKC-56#1 Advisory
+MMCME4 with global clock driver has no LOC  
+The MMCME4_ADV cell design_1_i/clk_wiz_0/inst/mmcme4_adv_inst CLKIN1 or CLKIN2 pin is driven by global Clock buffer(s) design_1_i/zynq_ultra_ps_e_0/U0/buffer_pl_clk_0.PL_CLK_0_BUFG and does not have a LOC constraint. It is recommended to LOC the MMCM and use the CLOCK_DEDICATED_ROUTE constraint on the net(s) driven by the global Clock buffer(s).
+Related violations: <none>
+
+
